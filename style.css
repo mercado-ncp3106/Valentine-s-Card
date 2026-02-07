@@ -1,0 +1,114 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: radial-gradient(circle at top, #ffd6e0, #ffeef2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Comic Sans MS', cursive;
+  overflow: hidden;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 45px;
+  border-radius: 30px;
+  text-align: center;
+  width: 90%;
+  max-width: 420px;
+  box-shadow: 0 30px 60px rgba(255, 77, 109, 0.3);
+  animation: fadeIn 1s ease;
+  position: relative;
+}
+
+@keyframes fadeIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+h1 {
+  color: #ff4d6d;
+  font-size: 2.2em;
+  text-shadow: 0 0 12px rgba(255, 77, 109, 0.4);
+  animation: floatText 3s ease-in-out infinite;
+  transition: transform 0.4s ease, color 0.4s ease;
+  white-space: pre-line;
+}
+
+@keyframes floatText {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+.buttons {
+  margin-top: 35px;
+  position: relative;
+  height: 130px;
+}
+
+button {
+  border: none;
+  border-radius: 50px;
+  padding: 15px 40px;
+  font-size: 18px;
+  cursor: pointer;
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+.yes {
+  background: #ff4d6d;
+  color: white;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: heartbeat 2s infinite;
+}
+
+.no {
+  background: #c5cbd3;
+  color: white;
+  left: 50%;
+  top: 65px;
+  transform: translateX(-50%);
+  transition: left 0.3s ease, top 0.3s ease;
+}
+
+@keyframes heartbeat {
+  0% { transform: translateX(-50%) scale(1); }
+  25% { transform: translateX(-50%) scale(1.05); }
+  50% { transform: translateX(-50%) scale(1); }
+  75% { transform: translateX(-50%) scale(1.05); }
+  100% { transform: translateX(-50%) scale(1); }
+}
+
+/* Hearts */
+.heart {
+  position: fixed;
+  font-size: 22px;
+  animation: floatUp 5s linear forwards;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(100vh); opacity: 1; }
+  to { transform: translateY(-10vh); opacity: 0; }
+}
+
+/* Sparkles */
+.sparkle {
+  position: fixed;
+  font-size: 14px;
+  opacity: 0.8;
+  animation: sparkleFloat 4s linear forwards;
+  pointer-events: none;
+}
+
+@keyframes sparkleFloat {
+  from { transform: translateY(100vh); opacity: 0; }
+  to { transform: translateY(-10vh); opacity: 1; }
+}
