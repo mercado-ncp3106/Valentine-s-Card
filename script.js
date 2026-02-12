@@ -71,7 +71,7 @@ function showSlide0() {
 function showSlide1() {
   question.style.transform = "scale(1.4)";
   question.style.color = "#ff1e56";
-  typeText(question, "February 14, 2026 Saturday\nYABU tayo 🥩🍚🥢");
+  typeText(question, "February 14, 2026 Saturday\nBlakes tayo 🥩");
 
   createNextButton(() => {
     showSlide2();
