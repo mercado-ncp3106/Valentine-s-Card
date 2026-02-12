@@ -136,19 +136,36 @@ function startHearts() {
   }, 250);
 }
 
-/* Run-away NO */
 function activateRunAwayNo() {
+
+  // 🔒 Block ALL clicking methods
+  noBtn.addEventListener("mousedown", (e) => {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    moveNoButton();
+  });
+
+  noBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+  });
+
+  // 👀 Move when cursor gets close
   noBtn.addEventListener("mouseenter", moveNoButton);
-  noBtn.addEventListener("mousemove", moveNoButton);
+  noBtn.addEventListener("mouseover", moveNoButton);
 }
 
 function moveNoButton() {
   const rect = card.getBoundingClientRect();
   const btnRect = noBtn.getBoundingClientRect();
 
-  const x = Math.random() * (rect.width - btnRect.width);
-  const y = Math.random() * (rect.height - btnRect.height);
+  const maxX = rect.width - btnRect.width;
+  const maxY = rect.height - btnRect.height;
 
+  const x = Math.random() * maxX;
+  const y = Math.random() * maxY;
+
+  noBtn.style.position = "absolute";
   noBtn.style.left = x + "px";
   noBtn.style.top = y + "px";
   noBtn.style.transform = "none";
